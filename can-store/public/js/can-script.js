@@ -2,7 +2,18 @@ var request = new XMLHttpRequest();
 var url = 'http://localhost:3000/products';
 request.open('GET', url);
 
+request.onreadystatechange = function() {
+  if (request.readyState !== 4) return;
 
+  if (request.status === 200) {
+    console.log(request.responseText);
+  }
+  else {
+    console.log('HTTP error', response.status, response.statusText);
+  }
+}
+
+request.send();
 
 
 
